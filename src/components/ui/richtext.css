@@ -1,0 +1,114 @@
+/* RichTextEditor.css */
+.rich-text-editor {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+  }
+  
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f7fafc;
+  }
+  
+  .toolbar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    color: #4a5568;
+  }
+  
+  .toolbar button:hover {
+    background: #edf2f7;
+  }
+
+  .youtube-embed {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    margin: 16px 0;
+  }
+  
+  .youtube-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: none;
+  }
+  
+  .toolbar button.is-active {
+    background: #e2e8f0;
+  }
+  
+  .editor-content {
+    padding: 16px;
+    min-height: 200px;
+    outline: none;
+  }
+  
+  /* ProseMirror-specific styles */
+  .ProseMirror {
+    outline: none;
+  }
+  
+  .ProseMirror img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .ProseMirror iframe {
+    max-width: 100%;
+    border-radius: 4px;
+  }
+
+  .rich-text-editor ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+  }
+  
+  .rich-text-editor ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+  
+  .rich-text-editor h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+  }
+  
+  .rich-text-editor h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin: 1rem 0;
+  }
+  
+  .rich-text-editor h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+  }
+
+  /* Add these styles to your richtext.css file */
+.ProseMirror a {
+  color: #2563eb; /* Blue color */
+  text-decoration: underline; /* Underline */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.ProseMirror a:hover {
+  color: #1d4ed8; /* Darker blue on hover */
+}

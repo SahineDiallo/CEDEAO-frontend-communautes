@@ -1,0 +1,298 @@
+/* @plugin "tailwindcss-animate"; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@theme {
+  --font-sans: var(--font-plus-jakarta-sans);
+  --font-mono: var(--font-plus-jakarta-mono);
+  
+  /* Add Poppins and Inter as custom font families */
+  --font-poppins: 'Poppins', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  
+  /* Custom colors from your original CSS */
+  --color-orange-500: #F48023;
+  --color-orange-400: #F48023/80;
+  --color-orange-600: #F48023/3;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-500: #3b82f6;
+}
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 149, 77%, 31%; /* #128C4F */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 52, 71%, 49%; /* #DCC820 */
+  --secondary-foreground: 0 0% 98%;
+  --muted: 52, 71%, 90%; /* Lightened version of secondary for muted */
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 52, 71%, 49%; /* #DCC820 */
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 149, 77%, 31%; /* #128C4F */
+  --radius: 0rem;
+
+  --chart-1: 210, 100%, 50%; /* Blue */
+  --chart-2: 120, 100%, 50%; /* Green */
+  --color-score: hsl(var(--chart-1)); /* Blue */
+  --color-rank: hsl(var(--chart-2)); /* Green */
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 149, 77%, 31%; /* #128C4F */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 52, 71%, 49%; /* #DCC820 */
+  --secondary-foreground: 0 0% 98%;
+  --muted: 52, 71%, 90%; /* Lightened version of secondary for muted */
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 52, 71%, 49%; /* #DCC820 */
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 149, 77%, 31%; /* #128C4F */
+  --chart-1: 210, 100%, 50%; /* Blue */
+  --chart-2: 120, 100%, 50%; /* Green */
+  --color-score: hsl(var(--chart-1)); /* Blue */
+  --color-rank: hsl(var(--chart-2)); /* Green */
+}
+
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-poppins) !important;
+  }
+  
+  /* Prose styles for markdown content */
+  .prose a {
+    color: var(--color-orange-500) !important;
+    text-decoration: underline !important;
+    font-style: italic !important;
+    font-weight: 300 !important;
+  }
+  
+  a:hover {
+    color: color-mix(in srgb, var(--color-orange-500) 80%, transparent) !important;
+  }
+  
+  /* Heading styles */
+  h1, h2, h3, h4 {
+    font-family: var(--font-poppins);
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #000;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+    color: #222;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #444;
+  }
+  
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #555;
+  }
+  
+  /* Discussion content styles */
+  .discussion_inst img,
+  .discussion_inst iframe {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    display: block;
+    margin: 1rem auto;
+  }
+  
+  /* React Select customization */
+  .react-select__control {
+    border-radius: 0 !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+}
+
+@layer utilities {
+  /* Flex utilities */
+  .flex-center {
+    display: flex;
+    align-items: center;
+  }
+  
+  .flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Button styles */
+  .btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--color-orange-500);
+    color: white;
+    transition: background-color 300ms;
+    
+    &:hover {
+      background-color: color-mix(in srgb, var(--color-orange-500) 30%, transparent);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-orange-500) 40%, transparent);
+    }
+  }
+  
+  .btn-primary {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-blue-600);
+    color: white;
+    border-radius: 0.5rem;
+    
+    &:hover {
+      background-color: var(--color-blue-700);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px var(--color-blue-500);
+    }
+  }
+  
+  /* Heading utility */
+  .h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    
+    @media (min-width: 640px) {
+      font-size: 1.875rem;
+    }
+    
+    @media (min-width: 768px) {
+      font-size: 2.25rem;
+    }
+    
+    @media (min-width: 1024px) {
+      font-size: 2.25rem;
+    }
+  }
+  
+  /* Custom header */
+  .custom-header {
+    padding: 12px;
+    padding-left: 0;
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 20px;
+    color: var(--color-orange-500);
+  }
+  
+  /* Custom background colors */
+  .bg-primary {
+    background-color: hsl(var(--primary));
+  }
+  
+  .bg-secondary {
+    background-color: hsl(var(--secondary));
+  }
+  
+  .bg-accent {
+    background-color: hsl(var(--accent));
+  }
+  
+  .bg-muted {
+    background-color: hsl(var(--muted));
+  }
+  
+  /* Custom text colors */
+  .text-primary {
+    color: hsl(var(--primary));
+  }
+  
+  .text-secondary {
+    color: hsl(var(--secondary));
+  }
+  
+  .text-accent {
+    color: hsl(var(--accent));
+  }
+  
+  .text-muted {
+    color: hsl(var(--muted));
+  }
+  
+  /* Custom border colors */
+  .border-primary {
+    border-color: hsl(var(--primary));
+  }
+  
+  .border-secondary {
+    border-color: hsl(var(--secondary));
+  }
+  
+  .border-accent {
+    border-color: hsl(var(--accent));
+  }
+  
+  .border-muted {
+    border-color: hsl(var(--muted));
+  }
+  
+  /* New utilities based on your original CSS */
+  .text-orange-500 {
+    color: var(--color-orange-500);
+  }
+  
+  .hover\:text-orange-400:hover {
+    color: var(--color-orange-400);
+  }
+  
+  .focus\:ring-orange-400:focus {
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-orange-500) 40%, transparent);
+  }
+}
+
+/* Additional custom styles outside layers */
+@layer components {
+  /* You can add component classes here if needed */
+}
